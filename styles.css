@@ -1,15 +1,7 @@
-/* CSS */
-:root {
-    font-family: Inter, sans-serif;
-    font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
-  }
-  @supports (font-variation-settings: normal) {
-    :root { font-family: InterVariable, sans-serif; }
-}  
-
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Inter', sans-serif;
     overflow: hidden;
 }
 
@@ -23,6 +15,7 @@ body {
     text-align: center;
     scroll-snap-align: start;
     background: linear-gradient(to bottom right, #0082c8, #005cbf);
+    color: #fff; /* Set text color to white for better visibility */
 }
 
 .content-container {
@@ -35,20 +28,18 @@ body {
 }
 
 .left-content {
-    flex: 1;
     text-align: center;
 }
 
 .profile-image {
-    width: 20px; /* Adjust as needed */
-    height: 20px; /* Adjust as needed */
+    width: 200px; /* Adjust as needed */
+    height: 200px; /* Adjust as needed */
     border-radius: 50%; /* Create a circular image */
     object-fit: cover; /* Maintain aspect ratio */
     margin-bottom: 20px;
 }
 
 .right-content {
-    flex: 1;
     text-align: left;
     padding-left: 20px; /* Adjust as needed for spacing */
 }
