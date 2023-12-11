@@ -1,22 +1,25 @@
 document.addEventListener('DOMContentLoaded', function () {
-    let sections = document.querySelectorAll('.section');
+    const sections = document.querySelectorAll('.section');
     let currentSectionIndex = 0;
 
-    function changeSection() {
-        sections[currentSectionIndex].classList.remove('active');
-        currentSectionIndex = (currentSectionIndex + 1) % sections.length;
-        sections[currentSectionIndex].classList.add('active');
+    function scrollToSection(index) {
+        sections[index].scrollIntoView({
+            behavior: 'smooth'
+        });
     }
 
-    // Initial setup
-    sections[currentSectionIndex].classList.add('active');
+    document.addEventListener('wheel', function (event) {
+        event.preventDefault(); // Prevent default scroll behavior
 
-    // Event listener for scroll
-    window.addEventListener('scroll', function () {
-        let scrollPosition = window.scrollY + window.innerHeight / 2;
+        const direction = event.deltaY > 0 ? 1 : -1;
+        currentSectionIndex += direction;
 
-        if (scrollPosition >= sections[currentSectionIndex].offsetTop + sections[currentSectionIndex].offsetHeight) {
-            changeSection();
+        if (currentSectionIndex < 0) {
+            currentSectionIndex = 0;
+        } else if (currentSectionIndex >= sections.length) {
+            currentSectionIndex = sections.length - 1;
         }
+
+        scrollToSection(currentSectionIndex);
     });
 });
