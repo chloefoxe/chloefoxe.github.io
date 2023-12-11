@@ -13,6 +13,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (scrollPosition >= sections[currentSectionIndex].offsetTop + sections[currentSectionIndex].offsetHeight) {
             changeSection();
+
+            // Add smooth scroll to the start of the next section
+            sections[currentSectionIndex].scrollIntoView({
+                behavior: 'smooth'
+            });
         }
     }
 
