@@ -1,29 +1,29 @@
-$(document).ready(function() {
-    let sections = $('.section');
+document.addEventListener('DOMContentLoaded', function () {
+    let sections = document.querySelectorAll('.section');
     let currentSectionIndex = 0;
 
     function changeSection() {
-        sections.eq(currentSectionIndex).removeClass('active');
+        sections[currentSectionIndex].classList.remove('active');
         currentSectionIndex = (currentSectionIndex + 1) % sections.length;
-        sections.eq(currentSectionIndex).addClass('active');
+        sections[currentSectionIndex].classList.add('active');
     }
 
     function scrollHandler() {
-    let scrollPosition = $(window).scrollTop() + ($(window).height() / 2);
+        let scrollPosition = window.scrollY + window.innerHeight / 2;
 
-    if (scrollPosition >= sections.eq(currentSectionIndex).offset().top + sections.eq(currentSectionIndex).outerHeight()) {
-        changeSection();
+        if (scrollPosition >= sections[currentSectionIndex].offsetTop + sections[currentSectionIndex].offsetHeight) {
+            changeSection();
 
-        // Add smooth scroll to the start of the next section
-        sections.eq(currentSectionIndex)[0].scrollIntoView({
-            behavior: 'smooth'
-        });
+            // Add smooth scroll to the start of the next section
+            sections[currentSectionIndex].scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
     }
-}
 
     // Initial setup
-    sections.eq(currentSectionIndex).addClass('active');
+    sections[currentSectionIndex].classList.add('active');
 
     // Event listener for scroll
-    $(window).on('scroll', scrollHandler);
+    window.addEventListener('scroll', scrollHandler);
 });
