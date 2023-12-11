@@ -9,17 +9,17 @@ $(document).ready(function() {
     }
 
     function scrollHandler() {
-        let scrollPosition = $(window).scrollTop() + $(window).height();
+    let scrollPosition = $(window).scrollTop() + ($(window).height() / 2);
 
-        if (scrollPosition >= sections.eq(currentSectionIndex).offset().top + sections.eq(currentSectionIndex).outerHeight()) {
-            changeSection();
+    if (scrollPosition >= sections.eq(currentSectionIndex).offset().top + sections.eq(currentSectionIndex).outerHeight()) {
+        changeSection();
 
-            // Add smooth scroll to the start of the next section
-            sections.eq(currentSectionIndex)[0].scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
+        // Add smooth scroll to the start of the next section
+        sections.eq(currentSectionIndex)[0].scrollIntoView({
+            behavior: 'smooth'
+        });
     }
+}
 
     // Initial setup
     sections.eq(currentSectionIndex).addClass('active');
