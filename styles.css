@@ -2,7 +2,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    scroll-behavior: smooth; /* Add smooth scrolling behavior */
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
 }
 
 .section {
@@ -12,6 +13,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    scroll-snap-align: start;
 }
 
 .section:nth-child(even) {

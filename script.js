@@ -1,29 +1,22 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // ... code inside the event listener function ...
+
     let sections = document.querySelectorAll('.section');
     let currentSectionIndex = 0;
 
     function changeSection() {
-        sections[currentSectionIndex].classList.remove('active');
-        currentSectionIndex = (currentSectionIndex + 1) % sections.length;
-        sections[currentSectionIndex].classList.add('active');
-    }
-
-    function scrollHandler() {
-        let scrollPosition = window.scrollY + window.innerHeight / 2;
-
-        if (scrollPosition >= sections[currentSectionIndex].offsetTop + sections[currentSectionIndex].offsetHeight) {
-            changeSection();
-
-            // Add smooth scroll to the start of the next section
-            sections[currentSectionIndex].scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
+        // ... code inside the changeSection function ...
     }
 
     // Initial setup
     sections[currentSectionIndex].classList.add('active');
 
     // Event listener for scroll
-    window.addEventListener('scroll', scrollHandler);
+    window.addEventListener('scroll', function () {
+        // ... code inside the scroll event listener function ...
+
+        if (scrollPosition >= sections[currentSectionIndex].offsetTop + sections[currentSectionIndex].offsetHeight) {
+            changeSection();
+        }
+    });
 });
