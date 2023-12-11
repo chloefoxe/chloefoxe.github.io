@@ -32,11 +32,12 @@ body {
 }
 
 .profile-image {
-    width: 200px; /* Adjust as needed */
-    height: 200px; /* Adjust as needed */
+    width: 150px; /* Adjust as needed */
+    height: 150px; /* Adjust as needed */
     border-radius: 50%; /* Create a circular image */
     object-fit: cover; /* Maintain aspect ratio */
     margin-bottom: 20px;
+    overflow: hidden; /* Ensure the image stays within the circle */
 }
 
 .right-content {
