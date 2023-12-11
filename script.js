@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // ... code inside the event listener function ...
-
     let sections = document.querySelectorAll('.section');
     let currentSectionIndex = 0;
 
     function changeSection() {
-        // ... code inside the changeSection function ...
+        sections[currentSectionIndex].classList.remove('active');
+        currentSectionIndex = (currentSectionIndex + 1) % sections.length;
+        sections[currentSectionIndex].classList.add('active');
     }
 
     // Initial setup
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Event listener for scroll
     window.addEventListener('scroll', function () {
-        // ... code inside the scroll event listener function ...
+        let scrollPosition = window.scrollY + window.innerHeight / 2;
 
         if (scrollPosition >= sections[currentSectionIndex].offsetTop + sections[currentSectionIndex].offsetHeight) {
             changeSection();
